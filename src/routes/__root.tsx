@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "See overall study progress, lecture and lab completion, today's tasks and recent activity at a glance.",
       },
-      { name: "theme-color", content: "#ffffff" },
+      { name: "theme-color", content: "#0b2468" },
       { property: "og:title", content: "Dashboard · Study Progress Tracker" },
       {
         property: "og:description",
@@ -106,7 +106,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,

@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RemindersRouteImport } from './routes/reminders'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StatisticsRouteImport } from './routes/statistics'
+import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as ItemsItemIdRouteImport } from './routes/items.$itemId'
+import { Route as SemestersIndexRouteImport } from './routes/semesters.index'
+import { Route as SemestersSemesterIdRouteImport } from './routes/semesters.$semesterId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RemindersRoute = RemindersRouteImport.update({
+  id: '/reminders',
+  path: '/reminders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatisticsRoute = StatisticsRouteImport.update({
+  id: '/statistics',
+  path: '/statistics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
+  id: '/courses/$courseId',
+  path: '/courses/$courseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItemsItemIdRoute = ItemsItemIdRouteImport.update({
+  id: '/items/$itemId',
+  path: '/items/$itemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SemestersIndexRoute = SemestersIndexRouteImport.update({
+  id: '/semesters/',
+  path: '/semesters/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SemestersSemesterIdRoute = SemestersSemesterIdRouteImport.update({
+  id: '/semesters/$semesterId',
+  path: '/semesters/$semesterId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/reminders': typeof RemindersRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/semesters/$semesterId': typeof SemestersSemesterIdRoute
+  '/semesters/': typeof SemestersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/reminders': typeof RemindersRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/semesters/$semesterId': typeof SemestersSemesterIdRoute
+  '/semesters': typeof SemestersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/reminders': typeof RemindersRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/semesters/$semesterId': typeof SemestersSemesterIdRoute
+  '/semesters/': typeof SemestersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/reminders'
+    | '/search'
+    | '/settings'
+    | '/statistics'
+    | '/courses/$courseId'
+    | '/items/$itemId'
+    | '/semesters/$semesterId'
+    | '/semesters/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/reminders'
+    | '/search'
+    | '/settings'
+    | '/statistics'
+    | '/courses/$courseId'
+    | '/items/$itemId'
+    | '/semesters/$semesterId'
+    | '/semesters'
+  id:
+    | '__root__'
+    | '/'
+    | '/reminders'
+    | '/search'
+    | '/settings'
+    | '/statistics'
+    | '/courses/$courseId'
+    | '/items/$itemId'
+    | '/semesters/$semesterId'
+    | '/semesters/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RemindersRoute: typeof RemindersRoute
+  SearchRoute: typeof SearchRoute
+  SettingsRoute: typeof SettingsRoute
+  StatisticsRoute: typeof StatisticsRoute
+  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  ItemsItemIdRoute: typeof ItemsItemIdRoute
+  SemestersSemesterIdRoute: typeof SemestersSemesterIdRoute
+  SemestersIndexRoute: typeof SemestersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +156,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reminders': {
+      id: '/reminders'
+      path: '/reminders'
+      fullPath: '/reminders'
+      preLoaderRoute: typeof RemindersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statistics': {
+      id: '/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof StatisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$courseId': {
+      id: '/courses/$courseId'
+      path: '/courses/$courseId'
+      fullPath: '/courses/$courseId'
+      preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/items/$itemId': {
+      id: '/items/$itemId'
+      path: '/items/$itemId'
+      fullPath: '/items/$itemId'
+      preLoaderRoute: typeof ItemsItemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/semesters/': {
+      id: '/semesters/'
+      path: '/semesters'
+      fullPath: '/semesters/'
+      preLoaderRoute: typeof SemestersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/semesters/$semesterId': {
+      id: '/semesters/$semesterId'
+      path: '/semesters/$semesterId'
+      fullPath: '/semesters/$semesterId'
+      preLoaderRoute: typeof SemestersSemesterIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RemindersRoute: RemindersRoute,
+  SearchRoute: SearchRoute,
+  SettingsRoute: SettingsRoute,
+  StatisticsRoute: StatisticsRoute,
+  CoursesCourseIdRoute: CoursesCourseIdRoute,
+  ItemsItemIdRoute: ItemsItemIdRoute,
+  SemestersSemesterIdRoute: SemestersSemesterIdRoute,
+  SemestersIndexRoute: SemestersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
